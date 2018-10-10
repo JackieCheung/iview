@@ -37,7 +37,7 @@
                 <i class="ivu-icon ivu-icon-ios-search" v-if="enterButton === true"></i>
                 <template v-else>{{ enterButton }}</template>
             </div>
-            <span class="ivu-input-prefix" v-else-if="showPrefix"><slot name="prefix"><i class="ivu-icon" :class="['ivu-icon-' + prefix]" v-if="prefix"></i></slot></span>
+            <span class="ivu-input-prefix" v-if="showPrefix"><slot name="prefix"><i class="ivu-icon" :class="['ivu-icon-' + prefix]" v-if="prefix"></i></slot></span>
         </template>
         <textarea
             v-else
