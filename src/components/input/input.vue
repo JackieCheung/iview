@@ -292,6 +292,7 @@
             handleClear () {
                 const e = { target: { value: '' } };
                 this.$emit('input', '');
+                this.focus();
                 this.setCurrentValue('');
                 this.$emit('on-change', e);
             },
