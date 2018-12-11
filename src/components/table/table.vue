@@ -326,7 +326,7 @@
                 let style = {};
                 if (this.bodyHeight !== 0) {
                     let height = this.bodyHeight - (this.showHorizontalScrollBar?this.scrollBarWidth:0);
-                    style.height = this.showHorizontalScrollBar ? `${height - 4}px` : `${height - 1}px`;
+                    style.height = this.showHorizontalScrollBar ? `${height - 3}px` : `${height}px`;
                 }
                 return style;
             },
