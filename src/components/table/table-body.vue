@@ -58,6 +58,10 @@
             fixed: {
                 type: [Boolean, String],
                 default: false
+            },
+            combined: {
+                type: [Boolean, String],
+                default: true
             }
         },
         computed: {
@@ -99,14 +103,16 @@
             customColumns (row) {
                 /* 数组元素类型为对象或数组的数组的深拷贝 */
                 let newColumns = JSON.parse(JSON.stringify(this.columns));
-                for(var i = 0; i < newColumns.length; i = j) {
-                    newColumns[i].tdColSpan = 1;
-                    for(var j = i + 1; j < newColumns.length; j++) {
-                        if(row[newColumns[i].key] && row[newColumns[i].key] != '' && row[newColumns[i].key] === row[newColumns[j].key]) {
-                            newColumns[i].tdColSpan ++;
-                            newColumns[j].show = false;
-                        } else {
-                            break;
+                if(this.combined) {
+                    for(var i = 0; i < newColumns.length; i = j) {
+                        newColumns[i].tdColSpan = 1;
+                        for(var j = i + 1; j < newColumns.length; j++) {
+                            if(row[newColumns[i].key] && row[newColumns[i].key] != '' && row[newColumns[i].key] === row[newColumns[j].key]) {
+                                newColumns[i].tdColSpan ++;
+                                newColumns[j].show = false;
+                            } else {
+                                break;
+                            }
                         }
                     }
                 }

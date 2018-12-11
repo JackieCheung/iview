@@ -21,7 +21,8 @@
                     :columns="cloneColumns"
                     :data="rebuildData"
                     :columns-width="columnsWidth"
-                    :obj-data="objData"></table-body>
+                    :obj-data="objData"
+                    :combined="cellCombined"></table-body>
             </div>
             <div
                 :class="[prefixCls + '-tip']" :style="bodyStyle" @scroll="handleBodyScroll"
@@ -58,7 +59,8 @@
                         :columns="leftFixedColumns"
                         :data="rebuildData"
                         :columns-width="columnsWidth"
-                        :obj-data="objData"></table-body>
+                        :obj-data="objData"
+                        :combined="cellCombined"></table-body>
                 </div>
             </div>
             <div :class="[prefixCls + '-fixed-right']" :style="fixedRightTableStyle" v-if="isRightFixed">
@@ -82,7 +84,8 @@
                         :columns="rightFixedColumns"
                         :data="rebuildData"
                         :columns-width="columnsWidth"
-                        :obj-data="objData"></table-body>
+                        :obj-data="objData"
+                        :combined="cellCombined"></table-body>
                 </div>
             </div>
             <div :class="[prefixCls + '-fixed-right-header']" :style="fixedRightHeaderStyle" v-if="isRightFixed"></div>
@@ -178,6 +181,10 @@
             loading: {
                 type: Boolean,
                 default: false
+            },
+            cellCombined: {
+                type: Boolean,
+                default: true
             }
         },
         data () {
