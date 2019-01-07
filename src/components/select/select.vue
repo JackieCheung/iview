@@ -55,7 +55,7 @@
                 ref="dropdown"
                 :data-transfer="transfer"
                 :transfer="transfer"
-                :enabledPreventOverflow="enabledPreventOverflow"
+                :enabledAttach="enabledAttach"
                 v-transfer-dom
             >
                 <ul v-show="showNotFoundLabel" :class="[prefixCls + '-not-found']"><li>{{ localeNotFoundText }}</li></ul>
@@ -222,7 +222,7 @@
                     return !this.$IVIEW || this.$IVIEW.transfer === '' ? false : this.$IVIEW.transfer;
                 }
             },
-            enabledPreventOverflow: {
+            enabledAttach: {
                 type: Boolean,
                 default: true
             },

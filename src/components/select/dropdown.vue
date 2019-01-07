@@ -22,7 +22,7 @@
             transfer: {
                 type: Boolean
             },
-            enabledPreventOverflow: {
+            enabledAttach: {
                 type: Boolean,
                 default: true
             }
@@ -61,11 +61,12 @@
                                 computeStyle:{
                                     gpuAcceleration: false
                                 },
-                                preventOverflow :{
+                                preventOverflow:{
                                     boundariesElement: 'window',
-                                    hidden: {
-                                        enabled: this.enabledPreventOverflow
-                                    }
+                                    enabled: this.enabledattach
+                                },
+                                hide:{
+                                    enabled: this.enabledattach
                                 }
                             },
                             onCreate:()=>{
