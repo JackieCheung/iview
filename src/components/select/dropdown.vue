@@ -63,7 +63,9 @@
                                 },
                                 preventOverflow :{
                                     boundariesElement: 'window',
-                                    enabled: this.enabledPreventOverflow
+                                    hidden: {
+                                        enabled: this.enabledPreventOverflow
+                                    }
                                 }
                             },
                             onCreate:()=>{
