@@ -55,6 +55,7 @@
                 ref="dropdown"
                 :data-transfer="transfer"
                 :transfer="transfer"
+                :enabledPreventOverflow="enabledPreventOverflow"
                 v-transfer-dom
             >
                 <ul v-show="showNotFoundLabel" :class="[prefixCls + '-not-found']"><li>{{ localeNotFoundText }}</li></ul>
@@ -220,6 +221,10 @@
                 default () {
                     return !this.$IVIEW || this.$IVIEW.transfer === '' ? false : this.$IVIEW.transfer;
                 }
+            },
+            enabledPreventOverflow: {
+                type: Boolean,
+                default: true
             },
             // Use for AutoComplete
             autoComplete: {

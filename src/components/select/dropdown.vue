@@ -21,6 +21,10 @@
             },
             transfer: {
                 type: Boolean
+            },
+            enabledPreventOverflow: {
+                type: Boolean,
+                default: true
             }
         },
         data () {
@@ -58,7 +62,8 @@
                                     gpuAcceleration: false
                                 },
                                 preventOverflow :{
-                                    boundariesElement: 'window'
+                                    boundariesElement: 'window',
+                                    enabled: enabledPreventOverflow
                                 }
                             },
                             onCreate:()=>{
