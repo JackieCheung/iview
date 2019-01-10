@@ -37,6 +37,7 @@
                 v-show="opened"
                 :class="{ [prefixCls + '-transfer']: transfer }"
                 :placement="placement"
+                :enabledPreventOverflow="enabledPreventOverflow"
                 ref="drop"
                 :data-transfer="transfer"
                 :transfer="transfer"
@@ -186,6 +187,10 @@
                     return oneOf(value, ['top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left', 'left-start', 'left-end', 'right', 'right-start', 'right-end']);
                 },
                 default: 'bottom-start'
+            },
+            enabledPreventOverflow: {
+                type: Boolean,
+                default: true
             },
             transfer: {
                 type: Boolean,
