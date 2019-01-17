@@ -61,7 +61,7 @@
             },
             combined: {
                 type: [Boolean, String],
-                default: true
+                default: false
             }
         },
         computed: {
@@ -101,11 +101,11 @@
                 this.$parent.dblclickCurrentRow(_index);
             },
             customColumns (row) {
-                /* 数组元素类型为对象或数组的数组的深拷贝 */
-                let newColumns = JSON.parse(JSON.stringify(this.columns));
-                let i = 0;
-                let j = 0;
                 if(this.combined) {
+                    /* 数组元素类型为对象或数组的数组的深拷贝 */
+                    let newColumns = JSON.parse(JSON.stringify(this.columns));
+                    let i = 0;
+                    let j = 0;
                     for(i = 0; i < newColumns.length; i = j) {
                         newColumns[i].tdColSpan = 1;
                         for(j = i + 1; j < newColumns.length; j++) {
@@ -118,7 +118,7 @@
                         }
                     }
                 }
-                return newColumns;
+                return this.columns;
             }
         }
     };
