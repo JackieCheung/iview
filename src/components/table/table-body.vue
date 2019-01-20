@@ -13,7 +13,7 @@
                     @mouseleave.native.stop="handleMouseOut(row._index)"
                     @click.native="clickCurrentRow(row._index)"
                     @dblclick.native.stop="dblclickCurrentRow(row._index)">
-                    <td v-for="column in customColumns(row)" :colspan="column.tdColSpan ? column.tdColSpan : 1" v-if="typeof(column.show) == 'undefined' || column.show ? true : column.show" :class="alignCls(column, row)">
+                    <td v-for="column in columns" :class="alignCls(column, row)">
                         <table-cell
                             :fixed="fixed"
                             :prefix-cls="prefixCls"
@@ -58,10 +58,6 @@
             fixed: {
                 type: [Boolean, String],
                 default: false
-            },
-            combined: {
-                type: [Boolean, String],
-                default: false
             }
         },
         computed: {
@@ -99,26 +95,6 @@
             },
             dblclickCurrentRow (_index) {
                 this.$parent.dblclickCurrentRow(_index);
-            },
-            customColumns (row) {
-                if(this.combined) {
-                    /* 数组元素类型为对象或数组的数组的深拷贝 */
-                    let newColumns = JSON.parse(JSON.stringify(this.columns));
-                    let i = 0;
-                    let j = 0;
-                    for(i = 0; i < newColumns.length; i = j) {
-                        newColumns[i].tdColSpan = 1;
-                        for(j = i + 1; j < newColumns.length; j++) {
-                            if(row[newColumns[i].key] && row[newColumns[i].key] !== '' && row[newColumns[i].key] === row[newColumns[j].key]) {
-                                newColumns[i].tdColSpan ++;
-                                newColumns[j].show = false;
-                            } else {
-                                break;
-                            }
-                        }
-                    }
-                }
-                return this.columns;
             }
         }
     };
