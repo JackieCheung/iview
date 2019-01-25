@@ -322,7 +322,7 @@
             bodyStyle () {
                 let style = {};
                 if (this.bodyHeight !== 0) {
-                    const height = this.bodyHeight - 3;
+                    const height = this.bodyHeight - 2;
                     style.height = `${height}px`;
                 }
                 return style;
@@ -331,7 +331,7 @@
                 let style = {};
                 if (this.bodyHeight !== 0) {
                     let height = this.bodyHeight - (this.showHorizontalScrollBar?this.scrollBarWidth:0);
-                    style.height = this.showHorizontalScrollBar ? `${height - 3}px` : `${height - 3}px`;
+                    style.height = this.showHorizontalScrollBar ? `${height - 2}px` : `${height - 2}px`;
                 }
                 return style;
             },
