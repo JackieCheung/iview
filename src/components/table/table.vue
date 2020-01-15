@@ -351,7 +351,7 @@
             bodyStyle () {
                 let style = {};
                 if (this.bodyHeight !== 0) {
-                    const height = this.bodyHeight - 2;
+                    const height = this.bodyHeight - 1;
                     if (this.height) {
                         style.height = `${height}px`;
                     } else if (this.maxHeight) {
@@ -363,8 +363,9 @@
             fixedBodyStyle () {
                 let style = {};
                 if (this.bodyHeight !== 0) {
-                    let height = this.bodyHeight - (this.showHorizontalScrollBar?this.scrollBarWidth:0);
-                    style.height = this.showHorizontalScrollBar ? `${height - 2}px` : `${height - 2}px`;
+                    let height = this.bodyHeight - (this.showHorizontalScrollBar ? this.scrollBarWidth : 0) - 1;
+                    // style.height = this.showHorizontalScrollBar ? `${height}px` : `${height}px`;
+                    style.height = `${height}px`;
                 }
                 return style;
             },
