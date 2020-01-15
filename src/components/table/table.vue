@@ -351,7 +351,7 @@
             bodyStyle () {
                 let style = {};
                 if (this.bodyHeight !== 0) {
-                    const height = this.bodyHeight;
+                    const height = this.bodyHeight - 2;
                     if (this.height) {
                         style.height = `${height}px`;
                     } else if (this.maxHeight) {

@@ -58,10 +58,10 @@
                         this.popper = new Popper(this.$parent.$refs.reference, this.$el, {
                             placement: this.placement,
                             modifiers: {
-                                computeStyle:{
+                                computeStyle: {
                                     gpuAcceleration: false
                                 },
-                                preventOverflow :{
+                                preventOverflow: {
                                     boundariesElement: 'window',
                                     enabled: this.enabledPreventOverflow
                                 },
@@ -69,11 +69,11 @@
                                     enabled: this.enabledPreventOverflow
                                 }
                             },
-                            onCreate:()=>{
+                            onCreate: ()=>{
                                 this.resetTransformOrigin();
                                 this.$nextTick(this.popper.update());
                             },
-                            onUpdate:()=>{
+                            onUpdate: ()=>{
                                 this.resetTransformOrigin();
                             }
                         });
